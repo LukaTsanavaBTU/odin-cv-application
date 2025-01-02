@@ -6,8 +6,8 @@ import PracticalExperiece from './components/PracticalExperience';
 
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({});
-  const [educationalExperience, setEducationalExperience] = useState([]);
-  const [practicalExperice, setPracticalExperice] = useState([]);
+  const [educationalExperience, setEducationalExperience] = useState([{id: crypto.randomUUID()}]);
+  const [practicalExperice, setPracticalExperice] = useState([{id: crypto.randomUUID()}]);
 
   return (
     <>
@@ -20,8 +20,8 @@ export default function App() {
         setEducationalExperience={setEducationalExperience}
       />
       <PracticalExperiece 
-        practicalExperice={practicalExperice}
-        setPracticalExperice={setPracticalExperice}
+        practicalExperience={practicalExperice}
+        setPracticalExperience={setPracticalExperice}
       />
     </>
   )

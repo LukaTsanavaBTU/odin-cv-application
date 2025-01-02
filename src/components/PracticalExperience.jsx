@@ -1,42 +1,81 @@
-export default function PracticalExperiece({practicalExperice, setPracticalExperice}) {
-    console.log(practicalExperice);
-    const handleOnSubmit = (e) => {
+export default function PracticalExperiece({practicalExperience, setPracticalExperience}) {
+    console.log(practicalExperience);
+
+    const listItems = practicalExperience.map(item => {
+        return (
+            <li key={item.id}>
+                <form>
+                    <label>
+                        Company Name:
+                        <input 
+                            type="text" name="name" 
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <label>
+                        Position Title:
+                        <input 
+                            type="email" name="position"
+                            onChange={(e) => handleOnChange(e, item.id)}    
+                        />
+                    </label>
+                    <label>
+                        Responsibilities:
+                        <input 
+                            type="tel" name="responsibilities"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <label>
+                        Start Date:
+                        <input 
+                            type="date" name="startDate"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <label>
+                        End Date:
+                        <input 
+                            type="date" name="endDate"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <button onClick={(e) => removeField(item.id)}>Remove</button>
+                </form>
+            </li>
+        );
+    });
+
+    function handleOnChange(e, itemId) {
         e.preventDefault();
-        setPracticalExperice([
-            ...practicalExperice,
-            {
-                name: e.target.name.value,
-                position: e.target.position.value,
-                responsibilities: e.target.responsibilities.value,
-                startDate: e.target.startDate.value,
-                endDate: e.target.endDate.value,
-            }
+        const newPracticalExperience = [...practicalExperience];
+        const index = newPracticalExperience.findIndex(item => item.id === itemId);
+        newPracticalExperience[index] = {
+            ...newPracticalExperience[index],
+            [e.target.name]: e.target.value,
+        };
+        setPracticalExperience(newPracticalExperience);
+    }
+
+    function removeField(itemId) {
+        setPracticalExperience(
+            practicalExperience.filter(item => item.id !== itemId)
+        );
+    }
+
+    function addNewField() {
+        setPracticalExperience([
+            ...practicalExperience,
+            {id: crypto.randomUUID()}
         ]);
-    };
+    }
 
     return (
-        <form onSubmit={handleOnSubmit}>
-            <label>
-                Company Name:
-                <input type="text" name="name"/>
-            </label>
-            <label>
-                Position Title:
-                <input type="email" name="position"/>
-            </label>
-            <label>
-                Responsibilities:
-                <input type="tel" name="responsibilities"/>
-            </label>
-            <label>
-                Start Date:
-                <input type="date" name="startDate"/>
-            </label>
-            <label>
-                End Date:
-                <input type="date" name="endDate"/>
-            </label>
-            <button>Next</button>
-        </form>
+        <>
+            <ul>
+                {listItems}
+            </ul>
+            <button onClick={addNewField}>Add</button>  
+        </>                                                      
     );
 }

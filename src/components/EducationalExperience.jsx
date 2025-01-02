@@ -1,32 +1,65 @@
 export default function EducationalExperience({educationalExperience, setEducationalExperience}) {
-    console.log(educationalExperience);
-    const handleOnSubmit = (e) => {
+    const listItems = educationalExperience.map(item => {
+        return (
+            <li key={item.id}>
+                <form>
+                    <label>
+                        Organization Name:
+                        <input 
+                            type="text" name="name"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <label>
+                        Title of Study:
+                        <input 
+                            type="text" name="title"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <label>
+                        Date of Study:
+                        <input 
+                            type="date" name="date"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <button onClick={(e) => removeField(item.id)}>Remove</button>
+                </form>
+            </li>
+        );
+    });
+
+    function handleOnChange(e, itemId) {
         e.preventDefault();
+        const newEducationalExperience = [...educationalExperience];
+        const index = newEducationalExperience.findIndex(item => item.id === itemId);
+        newEducationalExperience[index] = {
+            ...newEducationalExperience[index],
+            [e.target.name]: e.target.value
+        };
+        setEducationalExperience(newEducationalExperience);
+    }
+
+    function removeField(itemId) {
+        setEducationalExperience(
+            educationalExperience.filter(item => item.id !== itemId)
+        );
+    }
+
+    function addNewField() {
         setEducationalExperience([
             ...educationalExperience,
-            {
-                name: e.target.name.value,
-                title: e.target.title.value,
-                date: e.target.date.value,
-            }
+            {id: crypto.randomUUID()}
         ]);
-    };
+    }
 
     return (
-        <form onSubmit={handleOnSubmit}>
-            <label>
-                Organization Name:
-                <input type="text" name="name"/>
-            </label>
-            <label>
-                Title of Study:
-                <input type="text" name="title"/>
-            </label>
-            <label>
-                Date of Study:
-                <input type="date" name="date"/>
-            </label>
-            <button>Next</button>
-        </form>
+        <>
+            <ul>
+                {listItems}
+            </ul>
+            <button onClick={addNewField}>Add</button>  
+        </>                                                      
     );
 }

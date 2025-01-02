@@ -1,28 +1,35 @@
 export default function GeneralInformation({generalInfo, setGeneralInfo}) {
-    const handleOnSubmit = (e) => {
+    function handleOnChange(e) {
         e.preventDefault();
         setGeneralInfo({
-            name: e.target.name.value,
-            email: e.target.email.value,
-            phone: e.target.phone.value,
+            ...generalInfo,
+            [e.target.name]: e.target.value
         });
-    };
+    }
 
     return (
-        <form onSubmit={handleOnSubmit}>
+        <form>
             <label>
                 Name:
-                <input type="text" name="name"/>
+                <input 
+                    type="text" name="name"
+                    onChange={handleOnChange}
+                />
             </label>
             <label>
                 Email:
-                <input type="email" name="email"/>
+                <input 
+                    type="email" name="email"
+                    onChange={handleOnChange}
+                />
             </label>
             <label>
                 Phone:
-                <input type="tel" name="phone"/>
+                <input 
+                    type="tel" name="phone"
+                    onChange={handleOnChange}
+                />
             </label>
-            <button>Next</button>
         </form>
     );
 }

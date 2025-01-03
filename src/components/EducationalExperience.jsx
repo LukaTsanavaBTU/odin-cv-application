@@ -2,7 +2,7 @@ export default function EducationalExperience({educationalExperience, setEducati
     const listItems = educationalExperience.map(item => {
         return (
             <li key={item.id}>
-                <form>
+                <form class="educational-form">
                     <label>
                         Organization Name:
                         <input 
@@ -31,7 +31,7 @@ export default function EducationalExperience({educationalExperience, setEducati
                             onChange={(e) => handleOnChange(e, item.id)}
                         />
                     </label>
-                    <button onClick={(e) => removeField(item.id)}>Remove</button>
+                    <button class="remove-button" onClick={(e) => removeField(item.id)}>Remove</button>
                 </form>
             </li>
         );
@@ -66,7 +66,7 @@ export default function EducationalExperience({educationalExperience, setEducati
             <ul>
                 {listItems}
             </ul>
-            <button onClick={addNewField}>Add</button>  
+            <button onClick={addNewField} class="add-button">Add</button>  
         </>                                                      
     );
 }

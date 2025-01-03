@@ -8,14 +8,14 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
                         onChange={(e) => handleOnResponsibilityChange(e, item.id, responsibility.id)}
                     />
                     {index !== 0 &&
-                        <button onClick={(e) => removeResponsibility(e, item.id, responsibility.id)}>Remove</button>
+                        <button onClick={(e) => removeResponsibility(e, item.id, responsibility.id)}>X</button>
                     }
                 </li>
             );
         });
         return (
             <li key={item.id}>
-                <form>
+                <form class="practical-form">
                     <label>
                         Company Name:
                         <input 
@@ -30,7 +30,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
                             onChange={(e) => handleOnChange(e, item.id)}    
                         />
                     </label>
-                    <label>
+                    <label class="responsibilities-form">
                         Responsibilities:
                         <ul>
                             {responsibilitiesList}
@@ -50,7 +50,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
                             onChange={(e) => handleOnChange(e, item.id)}
                         />
                     </label>
-                    <button onClick={(e) => removeField(item.id)}>Remove</button>
+                    <button class="remove-button" onClick={(e) => removeField(item.id)}>Remove</button>
                 </form>
             </li>
         );
@@ -118,7 +118,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
             <ul>
                 {listItems}
             </ul>
-            <button onClick={addNewField}>Add</button>  
+            <button class="add-button" onClick={addNewField}>Add</button>  
         </>                                                      
     );
 }

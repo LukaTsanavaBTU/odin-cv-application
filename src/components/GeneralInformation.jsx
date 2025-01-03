@@ -8,7 +8,7 @@ export default function GeneralInformation({generalInfo, setGeneralInfo}) {
     }
 
     return (
-        <form>
+        <form class="general-form">
             <label>
                 Name:
                 <input 
@@ -30,7 +30,7 @@ export default function GeneralInformation({generalInfo, setGeneralInfo}) {
                     onChange={handleOnChange}
                 />
             </label>
-            <label>
+            <label class="summary-input">
                 Summary:
                 <textarea 
                     name="summary"

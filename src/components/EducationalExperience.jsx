@@ -18,9 +18,16 @@ export default function EducationalExperience({educationalExperience, setEducati
                         />
                     </label>
                     <label>
-                        Date of Study:
+                        Start Date:
                         <input 
-                            type="date" name="date"
+                            type="date" name="startDate"
+                            onChange={(e) => handleOnChange(e, item.id)}
+                        />
+                    </label>
+                    <label>
+                        End Date:
+                        <input 
+                            type="date" name="endDate"
                             onChange={(e) => handleOnChange(e, item.id)}
                         />
                     </label>

@@ -30,6 +30,13 @@ export default function GeneralInformation({generalInfo, setGeneralInfo}) {
                     onChange={handleOnChange}
                 />
             </label>
+            <label>
+                Summary:
+                <textarea 
+                    name="summary"
+                    onChange={handleOnChange}
+                />
+            </label>
         </form>
     );
 }

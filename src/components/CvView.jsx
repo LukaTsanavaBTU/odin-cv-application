@@ -1,16 +1,25 @@
 export default function CvView({generalInfo, educationalExperience, practicalExperience}) {
     return (
-        <div>
+        <div class="cv-wrapper">
             <h1>{generalInfo.name}</h1>
             <p>{generalInfo.email}</p>
             <p>{generalInfo.phone}</p>
+            <p>{generalInfo.summary}</p>
             <h2>Education</h2>
                 {educationalExperience.map((education) => {
                     return (
                         <div key={education.id}>
-                            <h3>{education.name}</h3>
-                            <p>{education.title}</p>
-                            <p>{education.date}</p>
+                            <h3>
+                                {education.name}
+                                {(education.name && education.title) && " | "}
+                                {education.title}
+                            </h3>
+                            <p>
+                                {education.startDate ? "From: " : null}
+                                {education.startDate} 
+                                {education.endDate ? " To: " : null}
+                                {education.endDate}
+                            </p>
                         </div>
                     );
                 })}

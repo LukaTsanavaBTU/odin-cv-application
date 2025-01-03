@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import './reset.css';
 import GeneralInformation from './components/GeneralInformation';
 import EducationalExperience from './components/EducationalExperience';
 import PracticalExperiece from './components/PracticalExperience';
@@ -18,18 +19,24 @@ export default function App() {
 
   return (
     <>
-      <GeneralInformation 
-        generalInfo={generalInfo}
-        setGeneralInfo={setGeneralInfo}
-      />
-      <EducationalExperience
-        educationalExperience={educationalExperience}
-        setEducationalExperience={setEducationalExperience}
-      />
-      <PracticalExperiece 
-        practicalExperience={practicalExperice}
-        setPracticalExperience={setPracticalExperice}
-      />
+      <div class="input-wrapper">
+        <h2>General Information</h2>
+        <GeneralInformation 
+          generalInfo={generalInfo}
+          setGeneralInfo={setGeneralInfo}
+        />
+        <h2>Education</h2>
+        <EducationalExperience
+          educationalExperience={educationalExperience}
+          setEducationalExperience={setEducationalExperience}
+        />
+        <h2>Work Experience</h2>
+        <PracticalExperiece 
+          practicalExperience={practicalExperice}
+          setPracticalExperience={setPracticalExperice}
+        />
+      </div>
+      
       <CvView 
         generalInfo={generalInfo}
         educationalExperience={educationalExperience}

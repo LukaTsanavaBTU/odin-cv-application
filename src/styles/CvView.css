@@ -2,10 +2,10 @@
     flex: 1;
     overflow: auto;
     padding: 20px;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.49);
+    /* box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.49);
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.49);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.49);
-    border: 1px solid black;
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.49); */
+    /* border: 1px solid black; */
     h1 {
         font-size: 3rem;
         font-weight: 600;
@@ -13,6 +13,7 @@
     h2 {
         font-size: 2rem;
         font-weight: 600;
+        margin: 20px 0 10px 0;
     }
     h3 {
         font-size: 1.2rem;
@@ -26,10 +27,14 @@
         font-size: 1.2rem;
         font-weight: 600;
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
         div {
             display: flex;
             align-items: center;
+        }
+        img {
+            width: 25px;
         }
     }
     .education-wrapper, 

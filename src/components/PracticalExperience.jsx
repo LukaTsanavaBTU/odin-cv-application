@@ -15,7 +15,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
         });
         return (
             <li key={item.id}>
-                <form class="practical-form">
+                <form className="practical-form">
                     <label>
                         Company Name:
                         <input 
@@ -30,7 +30,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
                             onChange={(e) => handleOnChange(e, item.id)}    
                         />
                     </label>
-                    <label class="responsibilities-form">
+                    <label className="responsibilities-form">
                         Responsibilities:
                         <ul>
                             {responsibilitiesList}
@@ -50,7 +50,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
                             onChange={(e) => handleOnChange(e, item.id)}
                         />
                     </label>
-                    <button class="remove-button" onClick={(e) => removeField(item.id)}>Remove</button>
+                    <button className="remove-button" onClick={(e) => removeField(item.id)}>Remove</button>
                 </form>
             </li>
         );
@@ -118,7 +118,7 @@ export default function PracticalExperiece({practicalExperience, setPracticalExp
             <ul>
                 {listItems}
             </ul>
-            <button class="add-button" onClick={addNewField}>Add</button>  
+            <button className="add-button" onClick={addNewField}>Add</button>  
         </>                                                      
     );
 }

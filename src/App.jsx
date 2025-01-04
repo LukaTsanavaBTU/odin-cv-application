@@ -7,19 +7,20 @@ import PracticalExperiece from './components/PracticalExperience';
 import CvView from './components/CvView';
 
 export default function App() {
-  const [generalInfo, setGeneralInfo] = useState({});
-  const [educationalExperience, setEducationalExperience] = useState([{id: crypto.randomUUID()}]);
-  const [practicalExperice, setPracticalExperice] = useState([{
-    id: crypto.randomUUID(), 
-    responsibilities: [{
-      id: crypto.randomUUID(),
-    }]
-  }]);
+  const [generalInfo, setGeneralInfo] = useState({links: [{id: crypto.randomUUID(), website: "github"}]});
+  const [educationalExperience, setEducationalExperience] = useState([]); //{id: crypto.randomUUID()}
+  const [practicalExperice, setPracticalExperice] = useState([]);
+  // {
+  //   id: crypto.randomUUID(), 
+  //   responsibilities: [{
+  //     id: crypto.randomUUID(),
+  //   }]
+  // }
   const info = {generalInfo, educationalExperience, practicalExperice};
 
   return (
     <>
-      <div class="input-wrapper">
+      <div className="input-wrapper">
         <h2>General Information</h2>
         <GeneralInformation 
           generalInfo={generalInfo}
